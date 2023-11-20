@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   # root "posts#index"
 
   root to: "pages#home"
+  resources :venues
 end
