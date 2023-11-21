@@ -10,7 +10,7 @@ class BookingsController < ApplicationController
   def create
     @venue = Venue.find(params[:venue_id])
     @booking = Booking.new(bookings_params)
-    @booking.venue = @booking
+    @booking.venue = @venue
     if @booking.save!
       redirect_to list_path(@booking)
     else
