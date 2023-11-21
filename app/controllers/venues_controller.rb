@@ -3,8 +3,16 @@ class VenuesController < ApplicationController
     @venues = Venue.all
   end
 
+  def show
+    @venue = Venue.find(params[:id])
+  end
+
   def new
     @venue = Venue.new
+  end
+
+  def show
+    @venue = Venue.find(params[:id])
   end
 
   def create
@@ -12,7 +20,7 @@ class VenuesController < ApplicationController
     if @venue.save
       redirect_to venue_path(@venue)
     else
-      render new, status: 422
+      render :new, status: :unprocessable_entity
     end
   end
 
