@@ -1,17 +1,29 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon px-3 sticky-top">
   <%= link_to root_path do %>
-    <%= image_tag "logo_small.png", alt: "alttext", class: "logo" %>
+    <%= image_tag "logo_red.png", alt: "alttext", class: "logo" %>
   <% end %>
-  <%# <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button> %>
 
-  <div class="search_bar">
+  <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button> -->
+
+  <div class="search_bar navbar-nav ml-auto mr-auto">
     <form class="form-inline input-group">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-danger my-2 my-sm-0" type="submit">Search</button>
+      <input class="form-control mr-sm-2" type="search" placeholder="Location" aria-label="Search">
+      <button class="btn btn-outline-danger my-2 my-sm-0" type="submit">Go</button>
     </form>
   </div>
 
-  <h3>VENUEBOOKR</h3>
+  <ul class="nav navbar-right">
+    <li>
+      <button class="btn btn-form btn-small">
+        <%= link_to "Become a host", new_venue_path, style: "color: red; text-decoration: none;" %>
+      </button>
+    </li>
+
+    <% if !user_signed_in? %>
+      <li class="btn btn-danger mx-1"><%= link_to "Log in", new_user_session_path, style: "color: white; text-decoration: none;" %></li>
+      <li class="btn btn-secondary"><%= link_to "Sign Up", new_user_registration_path, style: "color: white; text-decoration: none;" %></li>
+    <% end %>
+  </ul>
 </div>
