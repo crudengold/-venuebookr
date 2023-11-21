@@ -17,7 +17,11 @@
   <ul class="nav navbar-right">
     <li>
       <button class="btn btn-form btn-small">
-        <%= link_to "Become a host", new_venue_path, style: "color: red; text-decoration: none;" %>
+        <% if user_signed_in? %>
+          <%= link_to "Become a host", new_venue_path, style: "color: red; text-decoration: none;" %>
+        <% else%>
+          <%= link_to "Become a host", new_user_session_path, style: "color: red; text-decoration: none;" %>
+        <% end %>
       </button>
     </li>
 
