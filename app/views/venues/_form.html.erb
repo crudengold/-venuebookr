@@ -15,8 +15,11 @@
   <div class="mb-3 form-control">
     <%= f.input :price_per_hour %>
   </div>
+  <div class="mb-3 form-control">
+  <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+  </div>
   <div class="mb-3 btn-primary text-center">
-    <%= f.submit %>
+  <%= f.submit %>
   </div>
 <% end %>
 </div>
