@@ -9,7 +9,7 @@
 
   <div class="search_bar navbar-nav ml-auto mr-auto">
     <form class="form-inline input-group">
-      <input class="form-control mr-sm-2" type="search" placeholder="Find a venue" aria-label="Search">
+      <input class="form-control mr-sm-2" type="search" placeholder="Location" aria-label="Search">
       <button class="btn btn-outline-danger my-2 my-sm-0" type="submit">Go</button>
     </form>
   </div>
@@ -22,7 +22,7 @@
     </li>
 
     <% if !user_signed_in? %>
-      <li class="btn btn-danger mx-1"><%= link_to "Login", new_user_session_path, style: "color: white; text-decoration: none;" %></li>
+      <li class="btn btn-danger mx-1"><%= link_to "Log in", new_user_session_path, style: "color: white; text-decoration: none;" %></li>
       <li class="btn btn-secondary"><%= link_to "Sign Up", new_user_registration_path, style: "color: white; text-decoration: none;" %></li>
     <% end %>
   </ul>
