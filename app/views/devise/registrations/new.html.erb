@@ -10,22 +10,23 @@
         <%= f.input :email,
                     required: true,
                     autofocus: true,
-                    input_html: { autocomplete: "email" }%>
+                    input_html: { autocomplete: "email", class:"form-control bg-white mb-3"}%>
         <%= f.input :password,
                     required: true,
                     hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                    input_html: { autocomplete: "new-password" } %>
+                    input_html: { autocomplete: "new-password", class:"form-control bg-white" } %>
         <%= f.input :password_confirmation,
                     required: true,
-                    input_html: { autocomplete: "new-password" } %>
+                    input_html: { autocomplete: "new-password", class:"form-control bg-white mt-3" } %>
       </div>
 
-      <div class="form-actions">
-        <%= f.button :submit, "Sign up" %>
+      <div class="form-actions mt-3 text-center">
+        <%= f.button :submit, "Sign up", input_html: { class: "btn btn-primary"} %>
       </div>
     <% end %>
-
+    <div class="text-center">
     <%= render "devise/shared/links" %>
+    </div>
 
   </div>
 </div>

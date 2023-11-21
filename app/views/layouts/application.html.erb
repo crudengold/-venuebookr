@@ -7,13 +7,18 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+
     <%= javascript_importmap_tags %>
+
+    <%= favicon_link_tag asset_path('favicon-16x16.png') %>
+
   </head>
 
   <body>
     <%= render 'shared/navbar' %>
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
-        <%= yield %>
+       <div class="min_height"> <%= yield %></div>
+    <%= render 'shared/footer' %>
   </body>
 </html>
