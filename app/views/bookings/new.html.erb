@@ -1,10 +1,1 @@
 <h1> Booking page </h1>
-
-<%= simple_form_for [@venue, @booking] do |f| %>
-  <%= f.association :user %>
-  <%= f.input : :start_date %>
-  <%= f.input : :end_date %>
-  <%= f.button :submit , class: "btn btn-primary" %>
-<% end %>
-
-http://localhost:3000/venues/1/bookings/new
