@@ -1,13 +1,15 @@
 <div class="container">
+    <br>
   <h1>All venues</h1>
+    <br>
     <div class="row">
       <% @venues.each do |venue| %>
         <div class="card mb-3 col-3" style="width: 18rem;">
-          <img class="card-img-top" src="..." alt="Card image cap">
+          <img class="card-img-top" src="<%= venue.photo.key %>" alt="Card image cap">
             <div class="card-body">
             <h5 class="card-title"><%= venue.name %></h5>
             <p class="card-text"><%= venue.description %></p>
-            <p class="card-text">£<%= venue.price_per_hour %>per hour</p>
+            <p class="card-text">£<%= venue.price_per_hour %> per hour</p>
             <%= link_to venue.name, venue_path(venue), class:'btn btn-danger' %>
           </div>
         </div>

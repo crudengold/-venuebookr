@@ -11,10 +11,6 @@ class VenuesController < ApplicationController
     @venue = Venue.new
   end
 
-  def show
-    @venue = Venue.find(params[:id])
-  end
-
   def create
     @venue = Venue.new(venue_params)
     if @venue.save
