@@ -19,7 +19,7 @@ class BookingsController < ApplicationController
   end
 
   def destroy
-    @booking = Boooking.find(params[:id])
+    @booking = Booking.find(params[:id])
     @booking.destroy
     redirect_to booking_path(@booking.venue), status: :see_other
   end
@@ -29,5 +29,4 @@ class BookingsController < ApplicationController
   def bookings_params
     params.require(:booking).permit(:start_date, :end_date)
   end
-
 end
