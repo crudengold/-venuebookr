@@ -26,20 +26,33 @@
       </div>
     </div>
 
-    <div class="col-md-4 mt-3">
-      <div class="card">
-        <div class="card-body">
-          <h5 class="card-title border-bottom border-danger p-2"><%= @venue.description %></h5>
-          <h5 class="card-text p-2"><i class="fa-solid fa-globe" style="color: #dc3545;"></i> <%= @venue.location %></h5>
-          <h5 class="card-text p-2 my-4"><i class="fa-solid fa-people-group" style="color: #dc3545;"></i> <%= @venue.capacity %> Person Capacity</h5>
-          <h5 class="card-text p-2 my-4"><i class="fa-solid fa-money-bill-1-wave" style="color: #dc3545;"></i> £<%= @venue.price_per_hour %> per hour</h5>
+    <div class ="d-flex justify-content-center" >
+      <div class="col-md-4 mt-3 mx-5">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title border-bottom border-danger p-2"><%= @venue.description %></h5>
+            <h5 class="card-text p-2"><i class="fa-solid fa-globe" style="color: #dc3545;"></i> <%= @venue.location %></h5>
+            <h5 class="card-text p-2 my-4"><i class="fa-solid fa-people-group" style="color: #dc3545;"></i> <%= @venue.capacity %> Person Capacity</h5>
+            <h5 class="card-text p-2 my-4"><i class="fa-solid fa-money-bill-1-wave" style="color: #dc3545;"></i> £<%= @venue.price_per_hour %> per hour</h5>
+          </div>
         </div>
+    </div>
+
+      <div class="col-md-4 bg-white p-4 mt-3 mx-5">
+        <div class="card">
+          <%# <button class="btn btn-outline-primary">Create your booking</button> %>
+          <%= render "bookings/booking_form", venue: @venue, booking: @booking %>
+        </div>
+      </div>
+
       </div>
     </div>
   </div>
-
-    <div>
-      <%# <button class="btn btn-outline-primary">Create your booking</button> %>
-      <%= render "bookings/booking_form", venue: @venue, booking: @booking %>
-    </div>
 </div>
+
+
+
+   <%# <div class="row">
+      <div class="col-6 bg-white p-4 rounded"> %>
+<%#
+       %>
