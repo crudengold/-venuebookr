@@ -81,3 +81,5 @@ gem 'psych', '~>3.0'
 gem "dotenv-rails"
 
 gem "cloudinary"
+
+gem "faker"
