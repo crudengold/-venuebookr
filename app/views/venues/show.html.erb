@@ -1,20 +1,19 @@
-<div class="container">
+<div class="container mt-3">
   <div class="row">
     <h1 class="m-3 border-bottom border-danger"><%= @venue.name %></h1>
 
-
-    <div class="justify-content-center col-8 m-3">
+    <div class="col-md-8 m-3" >
       <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-inner">
-            <% @venue.photos.each_with_index do |photo, index| %>
-              <% if index == 0 %>
-                <div class="carousel-item active">
-              <% else %>
-                <div class="carousel-item">
-              <% end %>
-                <img src="<%= cl_image_path photo.key %>" class="d-block w-100 rounded" alt="...">
-              </div>
+        <div class="carousel-inner", style="border-radius: 10px;">
+          <% @venue.photos.each_with_index do |photo, index| %>
+            <% if index == 0 %>
+              <div class="carousel-item active">
+            <% else %>
+              <div class="carousel-item">
             <% end %>
+            <%= cl_image_tag photo.key, style: "width: 100%; height: 460px; overflow: hidden; object-fit: cover;" %>
+          </div>
+          <% end %>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -25,20 +24,17 @@
           <span class="visually-hidden">Next</span>
         </button>
       </div>
-      </div>
-      <br>
-        <div class="card w-50 m-3">
-          <div class="card-body">
-            <br>
-            <h5 class="card-title border-bottom border-danger p-2"><%= @venue.description %></h5>
-            <br>
-            <h5 class="card-text border-bottom border-danger p-2">📍<%= @venue.location %></h5>
-            <br>
-            <h5 class="card-text border-bottom border-danger p-2">💃<%= @venue.capacity %> Person Capacity</h5>
-            <br>
-            <h5 class="card-text p-2">💰 £<%= @venue.price_per_hour %> per hour</h5>
-          </div>
+    </div>
+
+    <div class="col-md-4 mt-3">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title border-bottom border-danger p-2"><%= @venue.description %></h5>
+          <h5 class="card-text p-2"><i class="fa-solid fa-globe" style="color: #dc3545;"></i> <%= @venue.location %></h5>
+          <h5 class="card-text p-2 my-4"><i class="fa-solid fa-people-group" style="color: #dc3545;"></i> <%= @venue.capacity %> Person Capacity</h5>
+          <h5 class="card-text p-2 my-4"><i class="fa-solid fa-money-bill-1-wave" style="color: #dc3545;"></i> £<%= @venue.price_per_hour %> per hour</h5>
         </div>
+      </div>
     </div>
   </div>
 </div>
