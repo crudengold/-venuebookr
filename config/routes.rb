@@ -13,5 +13,5 @@ Rails.application.routes.draw do
   resources :venues do
     resources :bookings, only: [:new, :create]
   end
-    resources :bookings, only: [:destroy]
+  resources :bookings, only: [:destroy]
 end
