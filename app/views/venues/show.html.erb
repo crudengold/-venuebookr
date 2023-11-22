@@ -1,9 +1,7 @@
 <div class="container">
   <div class="row">
-    <h1 class="m-3"><%= @venue.name %></h1>
-    <br>
-    <br>
-    <div class="col-10 align-items-center">
+    <h1 class="m-3 border-bottom border-danger"><%= @venue.name %></h1>
+    <div class="justify-content-center col-8 m-3">
       <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
             <% @venue.photos.each_with_index do |photo, index| %>
@@ -12,7 +10,6 @@
               <% else %>
                 <div class="carousel-item">
               <% end %>
-                <%# cl_image_tag photo.key %>
                 <img src="<%= cl_image_path photo.key %>" class="d-block w-100 rounded" alt="...">
               </div>
             <% end %>
@@ -30,11 +27,16 @@
       <br>
         <div class="card w-50 m-3">
           <div class="card-body">
-            <h5 class="card-title"><%= @venue.description %></h5>
-            <p class="card-text"><%= @venue.location %></p>
-            <p class="card-text"><%= @venue.capacity %> Person Capacity</p>
-            <p class="card-text">£<%= @venue.price_per_hour %> per hour</p>
+            <br>
+            <h5 class="card-title border-bottom border-danger p-2"><%= @venue.description %></h5>
+            <br>
+            <h5 class="card-text border-bottom border-danger p-2">📍<%= @venue.location %></h5>
+            <br>
+            <h5 class="card-text border-bottom border-danger p-2">💃<%= @venue.capacity %> Person Capacity</h5>
+            <br>
+            <h5 class="card-text p-2">💰 £<%= @venue.price_per_hour %> per hour</h5>
           </div>
         </div>
+    </div>
   </div>
 </div>
