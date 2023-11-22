@@ -1,2 +1,41 @@
-<h1>DASHBOARD</h1>
-<%= @user.email %>
+<br>
+<div class="container">
+  <h1>Welcome <%= @user.email %></h1>
+</div>
+
+<div class="container">
+  <br>
+    <h1>Your Bookings</h1>
+  <br>
+    <div class="row">
+      <% @user.bookings.each do |booking| %>
+        <div class="card  m-3 col-3 p-2" style="width: 18rem;">
+          <img src=<%= cl_image_path booking.venue.photos[0].key %> class="card-img-top" alt="booking-photo">
+          <div class="card-body">
+            <h5 class="card-title border-bottom border-danger">💃 <%= booking.venue.name %></h5>
+            <h5 class="card-title border-bottom border-danger">💰 £<%=  %></h5>
+            <h5 class="card-title">📅 <%= "#{booking.end_date - booking.start_date}" %></h5>
+          </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+
+<div class="container">
+  <br>
+    <h1>Your Venues</h1>
+  <br>
+      <% @user.venues.each do |venue| %>
+        <div class="card m-3 col-3 p-2" style="width: 18rem;">
+          <% if venue.photos.attached? %>
+            <img class="card-img-top rounded" src=<%= cl_image_path venue.photos[0].key %> alt="Card image cap">
+          <% end %>
+            <div class="card-body">
+             <h5 class="card-title border-bottom border-danger pb-2">🎉 <%= venue.name %></h5>
+              <h5 class="card-title pt-2">💰 £<%= venue.price_per_hour %> per hour</h5>
+          <%= link_to '', venue_path(venue), class:'stretched-link' %>
+          </div>
+        </div>
+      <% end %>
+ </div>
