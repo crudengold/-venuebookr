@@ -6,6 +6,18 @@ class BookingsController < ApplicationController
     @bookings = @user.bookings.all
   end
 
+  def index
+    @user = current_user
+    @bookings = @user.bookings.all
+  end
+
+  def show
+    @user = User.find(params[:user_id])
+    @booking = Booking.find(params[:id])
+    @venue = Venue.find(@booking.venue_id)
+  end
+
+
   def new
     @venue = Venue.find(params[:venue_id])
     @booking = Booking.new
@@ -14,9 +26,10 @@ class BookingsController < ApplicationController
   def create
     @venue = Venue.find(params[:venue_id])
     @booking = Booking.new(bookings_params)
+    @booking.user = current_user
     @booking.venue = @venue
     if @booking.save!
-      redirect_to list_path(@booking)
+      redirect_to booking_path(@booking)
     else
       render :new, status: :unprocessable_entity
     end
