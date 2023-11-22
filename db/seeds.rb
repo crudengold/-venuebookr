@@ -49,6 +49,10 @@ img_urls = ["https://media.timeout.com/images/105806374/750/562/image.jpg",
   venue.user = User.all.sample
   file = URI.open(img_urls[i])
   venue.photos.attach(io: file, filename: "bar.png", content_type: "image/png")
+  if i != 9
+    file = URI.open(img_urls[i + 1])
+    venue.photos.attach(io: file, filename: "bar.png", content_type: "image/png")
+  end
   venue.save!
   puts "#{venue.name} created!"
 end
