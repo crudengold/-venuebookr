@@ -2,6 +2,18 @@ class BookingsController < ApplicationController
 
   #http://localhost:3000/venues/1/bookings/new
 
+  def index
+    @user = current_user
+    @bookings = @user.bookings.all
+  end
+
+  def show
+    @user = User.find(params[:user_id])
+    @booking = Booking.find(params[:id])
+    @venue = Venue.find(@booking.venue_id)
+  end
+
+
   def new
     @venue = Venue.find(params[:venue_id])
     @booking = Booking.new
