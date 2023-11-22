@@ -28,6 +28,10 @@
     <% if !user_signed_in? %>
       <li class="btn btn-danger mx-1"><%= link_to "Log in", new_user_session_path, style: "color: white; text-decoration: none;" %></li>
       <li class="btn btn-secondary"><%= link_to "Sign Up", new_user_registration_path, style: "color: white; text-decoration: none;" %></li>
+    <% else %>
+      <%= link_to dashboard_path do %>
+      <%= image_tag('avatar.png', alt: 'Your Image Alt Text', style: 'width: 40px; height: 40px; margin-left: 10px;') %>
+      <% end %>
     <% end %>
   </ul>
 </div>
