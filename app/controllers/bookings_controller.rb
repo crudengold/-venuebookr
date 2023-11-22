@@ -1,10 +1,6 @@
 class BookingsController < ApplicationController
 
   #http://localhost:3000/venues/1/bookings/new
-  def index
-    @user = current_user
-    @bookings = @user.bookings.all
-  end
 
   def index
     @user = current_user
