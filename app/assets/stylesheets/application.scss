@@ -19,3 +19,8 @@
 .required abbr[title="required"] {
   display: none;
 }
+
+.form-check-input:checked {
+  background-color: #FD1015!important;
+  border-color: #6c757d;
+}
