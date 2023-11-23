@@ -17,11 +17,8 @@ class VenuesController < ApplicationController
   def show
     @venue = Venue.find(params[:id])
     @booking = Booking.new
-<<<<<<< HEAD
     @review = Review.new
-=======
     @bookmark = Bookmark.new
->>>>>>> 5afd849c4723204c9b31939f9f836b13cb3aa416
   end
 
   def new

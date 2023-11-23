@@ -8,9 +8,8 @@ class Venue < ApplicationRecord
 
   belongs_to :user
 
-<<<<<<< HEAD
   has_many :reviews
-=======
+
   has_many :bookmarks, dependent: :destroy
 
 
@@ -26,5 +25,4 @@ class Venue < ApplicationRecord
     }
 
 
->>>>>>> 5afd849c4723204c9b31939f9f836b13cb3aa416
 end
