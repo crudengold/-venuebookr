@@ -1,7 +1,7 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon px-3 sticky-top">
   <div class="d-flex align-items-center">
     <%= link_to root_path, style: "text-decoration: none; color: inherit;" do %>
-      <h3 class="d-flex align-items-center mb-0">
+      <h3 class="d-flex align-items-center">
         <%= image_tag "logo_red.png", alt: "alttext", class: "logo mr-2" %>
         <span class="venuebookr-text">VenueBookr</span>
       </h3>
@@ -10,8 +10,10 @@
 
   <div class="search_bar navbar-nav ml-auto mr-auto">
     <form class="form-inline input-group">
-      <input class="form-control mr-sm-2" type="search" placeholder="Name or Location" aria-label="Search">
-      <button class="btn btn-outline-danger my-2 my-sm-0" type="submit">Search</button>
+      <% unless params[:controller] == "pages" && params[:action] == "home" %>
+        <input class="form-control mr-sm-2" type="search" placeholder="Name or Location" aria-label="Search">
+        <button class="btn btn-outline-danger my-2 my-sm-0" type="submit">Search</button>
+      <% end %>
     </form>
   </div>
 

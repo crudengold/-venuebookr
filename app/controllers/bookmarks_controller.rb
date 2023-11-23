@@ -12,10 +12,16 @@ class BookmarksController < ApplicationController
     @bookmark.venue = @venue
     @bookmark.user = current_user
     if @bookmark.save!
-      redirect_to dashboard_path
+      redirect_to venue_path(@bookmark.venue)
     else
       render :new, status: :unprocessable_entity
     end
+  end
+
+  def destroy
+    @bookmark = Bookmark.find(params[:id])
+    @bookmark.destroy!
+    redirect_to venue_path(@bookmark.venue)
   end
 
   private

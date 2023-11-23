@@ -17,6 +17,7 @@ class VenuesController < ApplicationController
   def show
     @venue = Venue.find(params[:id])
     @booking = Booking.new
+    @review = Review.new
     @bookmark = Bookmark.new
     @markers = [{
         lat: @venue.latitude,

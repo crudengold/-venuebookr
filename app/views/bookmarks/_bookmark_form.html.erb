@@ -1,6 +1,20 @@
-<div class="card m-3 col-3 p-2" style="width: 12rem;">
-    <%= simple_form_for [venue, bookmark] do |f| %>
-      <%= f.input :bookmarked, inline_label: '' %>
-      <%= f.submit class:"btn btn-secondary"%>
-    <% end %>
-</div>
+<% if current_user.bookmarks.select { |b| b.venue == venue }.any?  %>
+  <% b = current_user.bookmarks.select { |b| b.venue == venue }.first %>
+  <%= link_to bookmark_path(b), data: {turbo_method: :delete} do %>
+    <div class="form-check form-switch">
+      <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" checked>
+      <label class="form-check-label" for="flexSwitchCheckDefault"></label>
+    </div>
+  <% end %>
+<% else %>
+
+      <%= simple_form_for [venue, bookmark] do |f| %>
+        <div class="form-check form-switch">
+        <%= f.check_box :bookmarked, class: "form-check-input", id: "bookmark", onchange: "this.form.submit()" %>
+          <label class="form-check-label" for="bookmark"></label>
+        </div>
+        <%#= f.submit class:"btn btn-secondary"%>
+      <% end %>
+
+
+<% end %>
