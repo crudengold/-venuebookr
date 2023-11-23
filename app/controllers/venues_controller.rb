@@ -1,6 +1,12 @@
 class VenuesController < ApplicationController
   def index
     @venues = Venue.all
+    @markers = @flats.geocoded.map do |flat|
+      {
+        lat: flat.latitude,
+        lng: flat.longitude
+      }
+    end
   end
 
   def show
