@@ -4,4 +4,11 @@ class Venue < ApplicationRecord
   has_many_attached :photos
   has_many :bookings, dependent: :destroy
   belongs_to :user
+
+  include PgSearch::Model
+  pg_search_scope :search_by_name_and_location,
+    against: [ :name, :location ],
+    using: {
+      tsearch: { prefix: true }
+    }
 end
