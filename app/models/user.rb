@@ -12,4 +12,6 @@ class User < ApplicationRecord
   has_many :venues, through: :bookmarks
 
   has_many :venues, dependent: :destroy
+
+  has_many :reviews
 end
