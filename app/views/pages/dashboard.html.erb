@@ -1,7 +1,7 @@
 <br>
   <div class="container">
     <div class="card text-bg-dark mb-3" style="max-width: 80%;">
-      <div class="card-header">My Dashboard</div>
+      <div class="card-header">Your Dashboard</div>
       <div class="card-body">
         <h5 class="card-title">Welcome <%= @user.email %> !</h5>
       </div>
@@ -28,6 +28,29 @@
       <% end %>
   </div>
 </div>
+
+<div class="container">
+  <br>
+  <div class="border-bottom border-danger pb-2">
+    <h1>Your Bookmarks</h1>
+  </div>
+  <br>
+    <div class="row">
+      <% @user.bookmarks.each do |bookmark| %>
+       <div class="card m-3 col-3 p-2" style="width: 18rem;">
+           <% if bookmark.venue.photos.attached? %>
+            <img class="card-img-top rounded" src=<%= cl_image_path bookmark.venue.photos[0].key %> alt="Card image cap">
+          <% end %>
+            <div class="card-body">
+             <h5 class="card-title border-bottom border-danger pb-2"><%= bookmark.venue.name %></h5>
+              <h5 class="card-title pt-2"> £<%= bookmark.venue.price_per_hour %> per day</h5>
+          <%= link_to '', venue_path(bookmark.venue), class:'stretched-link' %>
+          </div>
+        </div>
+    <% end  %>
+</div>
+</div>
+
 
 <div class="container">
   <br>
