@@ -1,0 +1,13 @@
+<%= simple_form_for [@venue, @review] do |f| %>
+  <div class="form-group">
+
+    <%= f.input :rating, as: :select, collection: 1..5, include_blank: false, input_html: { class: "form-control" } %>
+  </div>
+
+  <div class="form-group" >
+
+    <%= f.input :comment, as: :text, placeholder: "How was your experience at #{@venue.name}?", input_html: { class: "form-control", rows: 4 } %>
+  </div>
+
+  <%= f.button :submit, class: "btn btn-danger", style: "border-radius: 10px; color: white; margin-top: 10px;" %>
+<% end %>

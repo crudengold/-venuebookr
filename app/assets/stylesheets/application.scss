@@ -15,3 +15,7 @@
 .min_height {
   min-height: calc(100vh - 196px);
 }
+
+.required abbr[title="required"] {
+  display: none;
+}

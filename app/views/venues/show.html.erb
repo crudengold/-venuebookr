@@ -2,6 +2,8 @@
   <div class="row">
     <h1 class="m-3 border-bottom border-danger"><%= @venue.name %></h1>
 
+<!-- IMAGE CAROUSEL-->
+
     <div class="col-md-8 m-3" >
       <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner", style="border-radius: 10px;">
@@ -26,9 +28,11 @@
       </div>
     </div>
 
+<!-- DESCRIPTION CARD-->
+
     <div class ="d-flex justify-content-center" >
       <div class="col-md-4 mt-3 mx-5">
-        <div class="card">
+        <div class="card", style="border-radius: 10px">
           <div class="card-body">
             <h5 class="card-title border-bottom border-danger p-2"><%= @venue.description %></h5>
             <h5 class="card-text p-2"><i class="fa-solid fa-globe" style="color: #dc3545;"></i> <%= @venue.location %></h5>
@@ -38,14 +42,49 @@
         </div>
     </div>
 
-      <div class="col-md-4 bg-white p-4 mt-3 mx-5">
+<!-- BOOKING CARD-->
+
+      <div class="col-md-4 bg-white p-4 mt-3 mx-5", style="border-radius: 10px">
         <div class="card">
-          <%# <button class="btn btn-outline-primary">Create your booking</button> %>
           <%= render "bookings/booking_form", venue: @venue, booking: @booking %>
         </div>
       </div>
 
       </div>
+
+      <!-- Reviews Section -->
+<div class="col-md-8 mt-3 mx-auto">
+  <div class="card p-4 mt-3" style="border-radius: 10px">
+    <div class="card-body">
+      <div class="mb-4">
+        <h4 class="card-title border-bottom border-danger p-2">Reviews</h4>
+
+        <% @venue.reviews.each do |review| %>
+          <div class="mb-3">
+            <h5 class="card-title">
+              <% review.rating.times do %>
+                <i class="fa-regular fa-star" style="color: #dc3545;"></i>
+              <% end %>
+            </h5>
+            <p class="card-text"><%= review.comment %></p>
+          </div>
+        <% end %>
+      </div>
+
+      <!-- Leave a Review Section -->
+    <% if current_user && Booking.where(user: current_user, venue: @venue).exists? %>
+  <div class="mt-4">
+    <h4 class="card-title border-bottom border-danger p-2">Leave a Review</h4>
+    <div class="pt-4">
+      <%= render 'reviews/form', venue: @venue, review: @review %>
+    </div>
+  </div>
+<% end %>
     </div>
   </div>
 </div>
+    </div>
+  </div>
+</div>
+
+<!-- booking.where(user:current_user, venue:@venue) save to variable.
