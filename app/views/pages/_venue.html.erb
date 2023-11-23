@@ -1,11 +1,11 @@
-<div class="card m-3 col-3 p-2" style="width: 18rem;">
+<div class="card m-3 col-3 p-1" style="width: 350px;">
     <% if venue.photos.attached? %>
-      <img class="index-photo card-img-top rounded" src=<%= cl_image_path venue.photos[0].key %> alt="Card image cap">
+      <img class="index-photo card-img-top" src=<%= cl_image_path venue.photos[0].key %> alt="Card image cap">
     <% end %>
-    <div class="card-body text-center">
-      <h5 class="card-title border-bottom border-danger pb-2">🎉 <%= venue.name %></h5>
-      <h5 class="card-title pt-2">💰 £<%= venue.price_per_hour %> per day</h5>
-      <h5 class="card-title pt-2">👯 Capacity: <%= venue.capacity %> people</h5>
+    <div class="card-body text-start">
+      <h5 class="card-title border-bottom fw-bold"><%= venue.name %></h5>
+      <h5 class="card-title pt-2 "> 👥 <%= venue.capacity %> people</h5>
+      <h5 class="card-title pt-2 fs-6 text-decoration-underline">£<%= venue.price_per_hour %> per day</h5>
       <%= link_to '', venue_path(venue), class:'stretched-link' %>
     </div>
   </div>
