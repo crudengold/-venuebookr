@@ -13,7 +13,12 @@ Rails.application.routes.draw do
   get "dashboard", to: "pages#dashboard"
   resources :venues do
     resources :bookings, only: [:new, :create]
+<<<<<<< HEAD
     resources :reviews, only: [ :new, :create ]
+=======
+    resources :bookmarks, only: [:new, :create]
+>>>>>>> 5afd849c4723204c9b31939f9f836b13cb3aa416
   end
   resources :bookings, only: [:destroy]
+  resources :bookmarks, only: [:destroy]
 end

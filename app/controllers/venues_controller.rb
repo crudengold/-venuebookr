@@ -1,12 +1,27 @@
 class VenuesController < ApplicationController
   def index
-    @venues = Venue.all
+    if params[:query].present?
+      @venues = Venue.search_by_name_and_location(params[:query])
+    else
+      @venues = Venue.all
+    end
+    @markers = @venues.geocoded.map do |venue|
+      {
+        lat: venue.latitude,
+        lng: venue.longitude,
+        info_window_html: render_to_string(partial: "info_window", locals: {venue: venue})
+      }
+    end
   end
 
   def show
     @venue = Venue.find(params[:id])
     @booking = Booking.new
+<<<<<<< HEAD
     @review = Review.new
+=======
+    @bookmark = Bookmark.new
+>>>>>>> 5afd849c4723204c9b31939f9f836b13cb3aa416
   end
 
   def new

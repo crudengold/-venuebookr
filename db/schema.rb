@@ -10,7 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema[7.1].define(version: 2023_11_23_112028) do
+=======
+
+ActiveRecord::Schema[7.1].define(version: 2023_11_23_115835) do
+
+>>>>>>> 5afd849c4723204c9b31939f9f836b13cb3aa416
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -54,6 +60,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_23_112028) do
     t.index ["venue_id"], name: "index_bookings_on_venue_id"
   end
 
+<<<<<<< HEAD
   create_table "reviews", force: :cascade do |t|
     t.integer "rating"
     t.text "comment"
@@ -63,6 +70,16 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_23_112028) do
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_reviews_on_user_id"
     t.index ["venue_id"], name: "index_reviews_on_venue_id"
+=======
+  create_table "bookmarks", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.boolean "bookmarked", default: false
+    t.bigint "user_id", null: false
+    t.bigint "venue_id", null: false
+    t.index ["user_id"], name: "index_bookmarks_on_user_id"
+    t.index ["venue_id"], name: "index_bookmarks_on_venue_id"
+>>>>>>> 5afd849c4723204c9b31939f9f836b13cb3aa416
   end
 
   create_table "users", force: :cascade do |t|
@@ -86,6 +103,8 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_23_112028) do
     t.string "location"
     t.integer "capacity"
     t.bigint "user_id"
+    t.float "latitude"
+    t.float "longitude"
     t.index ["user_id"], name: "index_venues_on_user_id"
   end
 
@@ -93,7 +112,12 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_23_112028) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "bookings", "users"
   add_foreign_key "bookings", "venues"
+<<<<<<< HEAD
   add_foreign_key "reviews", "users"
   add_foreign_key "reviews", "venues"
+=======
+  add_foreign_key "bookmarks", "users"
+  add_foreign_key "bookmarks", "venues"
+>>>>>>> 5afd849c4723204c9b31939f9f836b13cb3aa416
   add_foreign_key "venues", "users"
 end
