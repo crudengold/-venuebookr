@@ -23,9 +23,47 @@ puts "Destroy all venues"
   puts "#{user.email} created!"
 end
 
-venues = ["The Whimsical Whiskey Haven", "Electric Elixir Lounge", "Moonlit Mirage Tavern",
-  "Velvet Vibes Speakeasy", "Stardust Saloon", "Mystic Mixology Mansion", "Neon Nectar Nook",
-  "Sapphire Soiree Spot", "Groovy Grapevine Grove", "Enchanted Ember Emporium"]
+venues = [
+  "The Whimsical Whiskey Haven",
+  "Electric Elixir Lounge",
+  "Moonlit Mirage Tavern",
+  "Velvet Vibes Speakeasy",
+  "Stardust Saloon",
+  "Mystic Mixology Mansion",
+  "Neon Nectar Nook",
+  "Sapphire Soiree Spot",
+  "Groovy Grapevine Grove",
+  "Enchanted Ember Emporium",
+  "Crimson Cabana Club",
+  "Radiant Rum Rendezvous",
+  "Jubilant Jukebox Junction",
+  "Sizzling Spirits Sanctuary",
+  "Azure Ale Alcove",
+  "Opulent Oasis Oyster Bar",
+  "Quirky Quaff Quarters",
+  "Luminous Libation Lounge",
+  "Harmony Hooch Hideaway",
+  "Peachy Punch Pavilion",
+  "Golden Goblet Grotto",
+  "Cosmic Cocktail Corner",
+  "Cherry Cheering Chamber",
+  "Bamboo Breeze Brew House",
+  "Whispering Willow Whisky Warehouse",
+  "Sunny Side Sip Station",
+  "Plush Plum Punch Parlor",
+  "Velour Vortex Venue",
+  "Majestic Mingle Manor",
+  "Wildfire Watering Hole",
+  "Fiesta Flame Front",
+  "Euphoric Echo Emporium",
+  "Harmonious Hops Hangout",
+  "Emerald Ember Enclave",
+  "Blissful Barrel Bungalow",
+  "Pulsating Pineapple Pub",
+  "Zesty Zephyr Zenith",
+  "Celestial Celebration Cellar"
+]
+
 
 img_urls = ["https://media.timeout.com/images/105806374/750/562/image.jpg",
   "https://media.timeout.com/images/105807610/750/562/image.jpg",
