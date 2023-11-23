@@ -11,7 +11,7 @@
       <% @venues.each do |venue| %>
         <div class="card m-3 col-3 p-2" style="width: 18rem;">
           <% if venue.photos.attached? %>
-            <img class="card-img-top rounded" src=<%= cl_image_path venue.photos[0].key %> alt="Card image cap">
+            <img class="index-photo card-img-top rounded" src=<%= cl_image_path venue.photos[0].key %> alt="Card image cap">
           <% end %>
           <div class="card-body">
             <h5 class="card-title border-bottom border-danger pb-2">🎉 <%= venue.name %></h5>
