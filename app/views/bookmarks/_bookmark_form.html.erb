@@ -7,7 +7,6 @@
     </div>
   <% end %>
 <% else %>
-
       <%= simple_form_for [venue, bookmark] do |f| %>
         <div class="form-check form-switch">
         <%= f.check_box :bookmarked, class: "form-check-input", id: "bookmark", onchange: "this.form.submit()" %>
@@ -15,6 +14,4 @@
         </div>
         <%#= f.submit class:"btn btn-secondary"%>
       <% end %>
-
-
 <% end %>
