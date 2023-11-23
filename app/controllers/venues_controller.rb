@@ -11,6 +11,7 @@ class VenuesController < ApplicationController
         lng: venue.longitude,
         info_window_html: render_to_string(partial: "info_window", locals: {venue: venue})
       }
+    end
   end
 
   def show
