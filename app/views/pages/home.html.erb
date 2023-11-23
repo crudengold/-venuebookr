@@ -3,12 +3,20 @@
   <div class="container">
     <h1> <strong>VenueBookr</strong></h1>
     <p>Book amazing party venues from all over the world!</p>
-     <div class="search_bar navbar-nav ml-auto mr-auto">
-    <form class="form-inline input-group">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search by venue name, types , location" aria-label="Search">
-      <button class="btn btn-danger my-2 my-sm-0" type="submit">Search</button>
-    </form>
+
+
+    <div class="row justify-content-center">
+  <div class="col-sm-8 my-3">
+    <%= form_with url: venues_path, method: :get, class: "d-flex" do %>
+      <%= text_field_tag :query,
+            params[:query],
+            class: "form-control",
+            placeholder: "Search by venue name, types , location"
+        %>
+      <%= submit_tag "Search", name: "", class: "btn btn-danger", style: "color: white; text-decoration: none;" %>
+    <% end %>
   </div>
+</div>
 
   </div>
 </div>
