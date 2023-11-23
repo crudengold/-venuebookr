@@ -1,10 +1,10 @@
 class VenuesController < ApplicationController
   def index
     @venues = Venue.all
-    @markers = @flats.geocoded.map do |flat|
+    @markers = @venues.geocoded.map do |venue|
       {
-        lat: flat.latitude,
-        lng: flat.longitude
+        lat: venue.latitude,
+        lng: venue.longitude
       }
     end
   end
