@@ -5,7 +5,11 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :bookings
 
+  has_many :bookmarks
+
   has_many :venues, through: :bookings
+
+  has_many :venues, through: :bookmarks
 
   has_many :venues, dependent: :destroy
 end

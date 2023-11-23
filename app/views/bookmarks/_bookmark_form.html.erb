@@ -1,0 +1,6 @@
+<div class="card m-3 col-3 p-2" style="width: 12rem;">
+    <%= simple_form_for [venue, bookmark] do |f| %>
+      <%= f.input :bookmarked, inline_label: '' %>
+      <%= f.submit class:"btn btn-secondary"%>
+    <% end %>
+</div>
