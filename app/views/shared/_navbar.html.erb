@@ -1,11 +1,12 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon px-3 sticky-top">
-  <%= link_to root_path do %>
-    <%= image_tag "logo_red.png", alt: "alttext", class: "logo" %>
-  <% end %>
-
-  <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button> -->
+  <div class="d-flex align-items-center">
+    <%= link_to root_path, style: "text-decoration: none; color: inherit;" do %>
+      <h3 class="d-flex align-items-center mb-0">
+        <%= image_tag "logo_red.png", alt: "alttext", class: "logo mr-2" %>
+        <span class="venuebookr-text">VenueBookr</span>
+      </h3>
+    <% end %>
+  </div>
 
   <div class="search_bar navbar-nav ml-auto mr-auto">
     <form class="form-inline input-group">
@@ -14,13 +15,14 @@
     </form>
   </div>
 
+
   <ul class="nav navbar-right">
     <li>
       <button class="btn btn-form btn-small">
         <% if user_signed_in? %>
-          <%= link_to "Become a host", new_venue_path, style: "color: red; text-decoration: none;" %>
+          <%= link_to "Become a host", new_venue_path, style: "color: red; text-decoration: none; margin-right: 10px;" %>
         <% else%>
-          <%= link_to "Become a host", new_user_session_path, style: "color: red; text-decoration: none;" %>
+          <%= link_to "Become a host", new_user_session_path, style: "color: red; text-decoration: none; margin-right: 10px;" %>
         <% end %>
       </button>
     </li>
@@ -29,9 +31,29 @@
       <li class="btn btn-danger mx-1"><%= link_to "Log in", new_user_session_path, style: "color: white; text-decoration: none;" %></li>
       <li class="btn btn-secondary"><%= link_to "Sign Up", new_user_registration_path, style: "color: white; text-decoration: none;" %></li>
     <% else %>
-      <%= link_to dashboard_path do %>
-      <%= image_tag('avatar.png', alt: 'Your Image Alt Text', style: 'width: 40px; height: 40px; margin-left: 10px;') %>
-      <% end %>
+      <div class="dropdown">
+        <a href="#" id="userDropdown" data-bs-toggle="dropdown">
+          <%= image_tag('avatar.png', alt: 'Your Image Alt Text', style: 'width: 40px; height: 40px; margin-left: 10px; margin-right: 10px;') %>
+        </a>
+        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+          <li>
+            <%= link_to dashboard_path(current_user) do %>
+            <i class="fa-solid fa-gauge" style="color: #dc3545;"></i>
+          Dashboard
+          <% end %>
+          </li>
+
+          <li class="divider"></li>
+
+          <li>
+            <%= link_to destroy_user_session_path, data: {turbo_method: :delete} do %>
+            <i class="fa-solid fa-arrow-right-from-bracket" style="color: #dc3545;"></i>
+            Sign out
+          <% end %>
+          </li>
+        </ul>
+      </div>
+
     <% end %>
   </ul>
 </div>
