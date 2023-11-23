@@ -14,6 +14,8 @@ Rails.application.routes.draw do
   resources :venues do
     resources :bookings, only: [:new, :create]
     resources :reviews, only: [ :new, :create ]
+    resources :bookmarks, only: [:new, :create]
   end
   resources :bookings, only: [:destroy]
+  resources :bookmarks, only: [:destroy]
 end

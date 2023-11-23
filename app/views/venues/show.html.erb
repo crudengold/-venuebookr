@@ -1,9 +1,7 @@
 <div class="container mt-3">
   <div class="row">
-    <h1 class="m-3 border-bottom border-danger"><%= @venue.name %></h1>
-
-<!-- IMAGE CAROUSEL-->
-
+    <h1 class="d-flex justify-content-between" ><%= @venue.name %><%= render "bookmarks/bookmark_form", venue: @venue, bookmark: @bookmark %></h1>
+    <div class="m-3 border-bottom border-danger"></div>
     <div class="col-md-8 m-3" >
       <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner", style="border-radius: 10px;">
