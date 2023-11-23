@@ -85,3 +85,5 @@ gem "dotenv-rails"
 gem "cloudinary"
 
 gem "faker"
+
+gem "geocoder"
