@@ -3,10 +3,12 @@
     <img class="index-photo card-img-top" src=<%= cl_image_path venue.photos[0].key %> alt="Card image cap">
   <% end %>
   <div class="card-body text-start">
-    <h5 class="card-title border-bottom fw-bold"><%= venue.name %></h5>
-    <h5 class="card-title pt-2"><i class="fa-solid fa-people-group" style="color: #dc3545;"></i> <%= venue.capacity %> people</h5>
-    <h5 class="card-title pt-2 fs-6 text-decoration-underline">£<%= venue.price_per_hour %> per day</h5>
-    <%= link_to '', venue_path(venue), class:'stretched-link' %>
+    <h5>🎉 <%= venue.name %></h5>
+      <h6 class="card-title border-bottom border-danger pb-2"><%= venue.location %></h6>
+
+      <p class="card-title pt-2">💰 £<%= venue.price_per_hour %> per day</p>
+      <p class="card-title pt-2">👯 Capacity: <%= venue.capacity %> people</p>
+      <%= link_to '', venue_path(venue), class:'stretched-link' %>
 
     <!-- Average Rating -->
     <div class="average-rating text-end mt-3">
