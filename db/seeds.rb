@@ -161,7 +161,7 @@ img_urls = ["https://media.timeout.com/images/105806374/750/562/image.jpg",
   venue.description = descriptions[i]
   venue.price_per_hour = 90 + rand(200)
   venue.location = locations.sample
-  venue.capacity = rand(250)
+  venue.capacity = 20 + rand(230)
   venue.user = User.all.sample
   file = URI.open(img_urls.sample)
   venue.photos.attach(io: file, filename: "bar.png", content_type: "image/png")
