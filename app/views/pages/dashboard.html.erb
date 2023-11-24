@@ -1,10 +1,10 @@
 <br>
   <div class="container">
-    <div class="card text-bg-grey mb-3" style="max-width: 100%;">
-      <div class="card-header">
-      <h5 class="fs-1"><strong> Welcome back, <%= @user.first_name.capitalize %>!</strong> </h5>
-      </div>
-    </div>
+    <div class="mb-3" style="max-width: 100%; border: none;">
+  <div class="card-header" style="border-bottom: 2px solid red;">
+    <h5 class="fs-1"><strong> Welcome back, <%= @user.first_name.capitalize %>!</strong> </h5>
+  </div>
+</div>
   </div>
 <div data-controller="tabs">
   <div>
@@ -29,17 +29,19 @@
     <br>
       <div class="row justify-content-center">
         <% @user.bookings.each do |booking| %>
-          <div class="card m-3 col-3 p-2" style="width: 18rem;">
-            <img src=<%= cl_image_path booking.venue.photos[0].key %> class="index-photo card-img-top" alt="booking-photo">
-            <div class="card-body">
-              <h5 class="card-title border-bottom border-danger pb-2"><%= booking.venue.name %></h5>
-              <h5 class="card-title pb-2"><%= (booking.end_date - booking.start_date).to_i %> Nights x £<%= booking.venue.price_per_hour %></h5>
-              <h5 class="card-title border-bottom border-danger pb-2">Total Price: £ <%= "#{ (booking.end_date - booking.start_date).to_i * booking.venue.price_per_hour}" %></h5>
-              <h5 class="card-title">From <%=  booking.start_date.to_formatted_s(:long_ordinal)%> to <%= booking.end_date.to_formatted_s(:long_ordinal) %></h5>
+          <%= link_to venue_path(booking.venue), class: "card m-3 col-3 p-2", style: "width: 18rem;" do %>
+            <div>
+              <img src=<%= cl_image_path booking.venue.photos[0].key %> class="index-photo card-img-top" alt="booking-photo">
+              <div class="card-body">
+                <h5 class="card-title border-bottom border-danger pb-2"><%= booking.venue.name %></h5>
+                <h5 class="card-title pb-2"><%= (booking.end_date - booking.start_date).to_i %> Nights x £<%= booking.venue.price_per_hour %></h5>
+                <h5 class="card-title border-bottom border-danger pb-2">Total Price: £ <%= "#{ (booking.end_date - booking.start_date).to_i * booking.venue.price_per_hour}" %></h5>
+                <h5 class="card-title">From <%= booking.start_date.to_formatted_s(:long_ordinal) %> to <%= booking.end_date.to_formatted_s(:long_ordinal) %></h5>
+              </div>
             </div>
-          </div>
+          <% end %>
         <% end %>
-    </div>
+      </div>
   </div>
 
   <div class="container d-none" data-target="tabs.content" data-tab="3">

@@ -44,7 +44,7 @@
         <a href="#" id="userDropdown" data-bs-toggle="dropdown">
           <%= image_tag('avatar.png', alt: 'Your Image Alt Text', style: 'width: 40px; height: 40px; margin-left: 10px; margin-right: 10px;') %>
         </a>
-        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown" data-controller="tabs">
           <li>
             <%= link_to dashboard_path(current_user) do %>
             <i class="fa-solid fa-gauge" style="color: #dc3545;"></i>
