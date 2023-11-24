@@ -3,35 +3,37 @@
     <h1 class="d-flex justify-content-between" ><%= @venue.name %><%= render "bookmarks/bookmark_form", venue: @venue, bookmark: @bookmark %></h1>
     <div class="m-3 border-bottom border-danger"></div>
 
-    <div class="col-md-8 m-3" >
-      <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-inner", style="border-radius: 10px;">
-          <% @venue.photos.each_with_index do |photo, index| %>
-            <% if index == 0 %>
-              <div class="carousel-item active">
-            <% else %>
-              <div class="carousel-item">
+    <div class="col-md-8 mt-3">
+      <div class ="d-flex justify-content-center" >
+        <div id="carouselExampleControls" class="carousel slide w-100" data-bs-ride="carousel">
+          <div class="carousel-inner" style="border-radius: 10px;">
+            <% @venue.photos.each_with_index do |photo, index| %>
+                <div class="carousel-item w-100 <%= "active" if index == 0 %>">
+              <%= cl_image_tag photo.key, style: "width: 100%; height: 460px; overflow: hidden; object-fit: cover;" %>
+            </div>
             <% end %>
-            <%= cl_image_tag photo.key, style: "width: 100%; height: 460px; overflow: hidden; object-fit: cover;" %>
           </div>
-          <% end %>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
       </div>
     </div>
 
-<!-- DESCRIPTION CARD-->
+    <div class="col-md-4 bg-white p-4 mt-3">
+        <div class="card" id="booking-form">
+          <%# <button class="btn btn-outline-primary">Create your booking</button> %>
+          <%= render "bookings/booking_form", venue: @venue, booking: @booking %>
+        </div>
+      </div>
 
-    <div class ="d-flex justify-content-center" >
-      <div class="col-md-4 mt-3 mx-5">
-        <div class="card", style="border-radius: 10px">
+      <div class="col-md-4 mt-3">
+        <div class="card">
           <div class="card-body">
             <h5 class="card-title border-bottom border-danger p-2"><%= @venue.description %></h5>
             <h5 class="card-text p-2"><i class="fa-solid fa-globe" style="color: #dc3545;"></i> <%= @venue.location %></h5>
@@ -39,15 +41,15 @@
             <h5 class="card-text p-2 my-4"><i class="fa-solid fa-money-bill-1-wave" style="color: #dc3545;"></i> £<%= @venue.price_per_hour %> per day</h5>
           </div>
         </div>
-    </div>
-
-<!-- BOOKING CARD-->
-
-      <div class="col-md-4 bg-white p-4 mt-3 mx-5", style="border-radius: 10px">
-        <div class="card">
-          <%= render "bookings/booking_form", venue: @venue, booking: @booking %>
-        </div>
       </div>
+
+      <div class="col-md-4 mt-3">
+      <div style="width: 100%; height: 300px;"
+          data-controller="map"
+          data-map-markers-value="<%= @markers.to_json %>"
+          data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+      </div>
+    </div>
 
       </div>
 
@@ -85,5 +87,3 @@
     </div>
   </div>
 </div>
-
-<!-- booking.where(user:current_user, venue:@venue) save to variable.
