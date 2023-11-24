@@ -12,8 +12,10 @@ require 'faker'
 
 User.destroy_all
 puts "Destroy all users"
+Review.destroy_all
 Venue.destroy_all
 puts "Destroy all venues"
+
 
 5.times do |i|
   user = User.new
@@ -165,4 +167,20 @@ img_urls = ["https://media.timeout.com/images/105806374/750/562/image.jpg",
   venue.photos.attach(io: file, filename: "bar.png", content_type: "image/png")
   venue.save!
   puts "#{venue.name} created!"
+end
+
+Venue.all.each do |venue|
+  5.times do
+    rating = rand(1..5)
+    comment = Faker::Hipster.sentence
+
+    review = Review.new
+    review.rating = rating
+    review.comment = comment
+    review.user = User.all.sample
+    review.venue = venue
+    review.save!
+  end
+
+  puts "Reviews created for #{venue.name}!"
 end
