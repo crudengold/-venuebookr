@@ -1,11 +1,17 @@
 <div class="container mt-3">
   <div class="row">
     <div class="d-flex justify-content-between m-3 border-bottom border-danger">
-      <h1><%= @venue.name %></h1>
-    <div class="card m-2 p-1" >
-      <h3 class="m-3" > <%= render "bookmarks/bookmark_form", venue: @venue, bookmark: @bookmark %>Save</h3>
+        <h1><%= @venue.name %></h1>
+      <div class="card m-2 p-1" style="width: 16rem;" >
+        <div class="row">
+          <div class="col-6 d-flex justify-content-center">
+            <button type="button" class="btn btn-secondary btn-lg" data-bs-toggle="modal" data-bs-target="#exampleModal">Share</button>
+          </div>
+          <div class="col-6 d-flex justify-content-center">
+            <h3><%= render "bookmarks/bookmark_form", venue: @venue, bookmark: @bookmark %>Save</h3>
+          </div>
+        </div>
       </div>
-      <h1><button type="button" class="btn btn-secondary" data-bs-toggle="modal" data-bs-target="#exampleModal">Share</button></h1>
     </div>
     <div class="col-md-8 m-3" >
       <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
@@ -114,7 +120,10 @@
             </div>
           </div>
           <br>
+
             <div class="footer-links d-flex justify-content-center">
+              <br>
+              <h5>Share on:</h5>
               <a href="#"><i class="fab fa-instagram"></i></a>
               <a href="#"><i class="fab fa-facebook"></i></a>
               <a href="#"><i class="fab fa-twitter"></i></a>
