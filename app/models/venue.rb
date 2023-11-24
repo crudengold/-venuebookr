@@ -8,7 +8,7 @@ class Venue < ApplicationRecord
 
   belongs_to :user
 
-  has_many :reviews
+  has_many :reviews, dependent: :destroy
 
   has_many :bookmarks, dependent: :destroy
 

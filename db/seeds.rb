@@ -17,6 +17,8 @@ puts "Destroy all venues"
 
 5.times do |i|
   user = User.new
+  user.first_name = Faker::Name.first_name
+  user.last_name = Faker::Name.last_name
   user.email = Faker::Internet.email
   user.password = 123456
   user.save!
@@ -155,7 +157,7 @@ img_urls = ["https://media.timeout.com/images/105806374/750/562/image.jpg",
   venue = Venue.new
   venue.name = venues[i]
   venue.description = descriptions[i]
-  venue.price_per_hour = rand(100)
+  venue.price_per_hour = 90 + rand(200)
   venue.location = locations.sample
   venue.capacity = rand(250)
   venue.user = User.all.sample
