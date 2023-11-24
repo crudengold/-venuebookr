@@ -13,6 +13,7 @@ class BookmarksController < ApplicationController
     @bookmark.user = current_user
     if @bookmark.save!
       redirect_to venue_path(@bookmark.venue)
+      flash[:message] = 'Succesfully saved venue to your dashboard!'
     else
       render :new, status: :unprocessable_entity
     end
