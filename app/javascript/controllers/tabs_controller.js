@@ -9,6 +9,7 @@ export default class extends Controller {
 
   changeTab(event) {
     event.preventDefault();
+    console.log(event)
     this.tabTargets.forEach(tab => tab.classList.remove("active"));
     this.contentTargets.forEach(content => content.classList.add("d-none"));
 
