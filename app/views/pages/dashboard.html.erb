@@ -1,12 +1,26 @@
 <br>
   <div class="container">
-    <div class="card text-bg-dark mb-3" style="max-width: 80%;">
+    <div class="card text-bg-grey mb-3" style="max-width: 100%;">
       <div class="card-header">Your Dashboard</div>
       <div class="card-body">
         <h5 class="card-title">Welcome <%= @user.email %> !</h5>
       </div>
     </div>
   </div>
+
+<div>
+  <ul class="list-inline tabs-underlined justify-content-center" data-controller="tabs">
+    <li>
+      <a href="#" class="tab-underlined active" data-tabs-value="tab">Bookings</a>
+    </li>
+    <li>
+      <a href="#" class="tab-underlined">Your venues</a>
+    </li>
+    <li>
+      <a href="#" class="tab-underlined">Saved</a>
+    </li>
+  </ul>
+</div>
 
 <div class="container">
   <br>

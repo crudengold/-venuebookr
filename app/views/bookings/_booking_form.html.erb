@@ -1,13 +1,13 @@
 <div class="column">
 <%= simple_form_for [venue, booking] do |f|%>
-  <div class="mb-3 form-control">
+  <div class="mb-3 form-control" style="border-radius: 17px">
     <%= f.input :start_date,
-            as: :date,
+            as: :string,
             input_html: { data: { controller: "datepicker" } } %>
   </div>
   <div class="mb-3 form-control">
     <%= f.input :end_date,
-            as: :date,
+            as: :string,
             input_html: { data: { controller: "datepicker" } } %>
   </div>
   <div class="mb-3 btn-primary text-center">
