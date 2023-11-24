@@ -1,4 +1,14 @@
 .card {
-  border-color: #dc35463d; /* Red color */
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0);;
+  border-color: red; /* Red color */
+  box-shadow: 0 0px 10px rgba(0, 0, 0, 0);
+  border-radius: 20px;
+  border-width: 2px;
+
 }
+
+.index-photo{
+  border-radius: 10px;
+  border-color: black;
+  border-width: 10px;
+}
+// border-color: #dc35463d;

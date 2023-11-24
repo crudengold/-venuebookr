@@ -9,7 +9,7 @@
   <div class="mb-3 form-control">
     <%= f.input :location,
       input_html: {data: {address_autocomplete_target: "location"}, class: "d-none"},
-      wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}, }%>
+      wrapper_html: {data: {controller: "address-autocomplete", address_autocomplete_api_key_value: ENV["MAPBOX_API_KEY"]}}%>
   </div>
   <div class="mb-3 form-control">
     <%= f.input :capacity, input_html: { class:"form-control bg-white"} %>
@@ -21,7 +21,7 @@
   <%= f.input :photos, as: :file, input_html: { multiple: true, class:"form-control"} %>
   </div>
   <div class="mb-3 btn-primary text-center">
-  <%= f.submit %>
+  <%= f.submit 'Create venue', class: "btn btn-default btn-danger", style: "color: white"%>
   </div>
 <% end %>
 </div>

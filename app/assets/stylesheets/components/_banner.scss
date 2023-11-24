@@ -1,0 +1,14 @@
+.banner{
+  height: 800px;
+}
+
+.info-banner {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around; /* or use justify-content: space-between; */
+  align-items: center;
+}
+
+.info-banner div {
+  text-align: center;
+}

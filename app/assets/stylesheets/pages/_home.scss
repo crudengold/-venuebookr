@@ -14,9 +14,8 @@
 }
 
 .banner p {
-  font-size: 20px;
+  font-size: 25px;
   color: white;
-  opacity: .7;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
 }
 
@@ -81,4 +80,18 @@
   // height: 100px; width: 200px; overflow: hidden;
   height: 180px;
   overflow: hidden;
+}
+
+#index-map {
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  display: flex;
+}
+
+#booking-form {
+  height: 50vh;
+  position: sticky;
+  top: 25%;
+  display: flex;
 }

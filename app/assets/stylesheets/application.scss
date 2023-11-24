@@ -11,16 +11,27 @@
 @import "components/index";
 @import "pages/index";
 
-
+// PIN FOOTER TO BOTTOM OF PAGE
 .min_height {
   min-height: calc(100vh - 196px);
 }
+// END
 
+// REMOVING ASTERISK FROM REQUIRED FIELDS ON FORMS
 .required abbr[title="required"] {
   display: none;
 }
+
 
 .form-check-input:checked {
   background-color: #FD1015!important;
   border-color: #6c757d;
 }
+// END
+
+// LIGHTENING PASSWORD HINT FONT ON SIGN-UP FORM
+.form-group.mb-4 .hint {
+    color: #999;
+}
+// END
+

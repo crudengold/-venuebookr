@@ -19,6 +19,11 @@ class VenuesController < ApplicationController
     @booking = Booking.new
     @review = Review.new
     @bookmark = Bookmark.new
+    @markers = [{
+        lat: @venue.latitude,
+        lng: @venue.longitude,
+        info_window_html: render_to_string(partial: "info_window", locals: {venue: @venue})
+      }]
   end
 
   def new
