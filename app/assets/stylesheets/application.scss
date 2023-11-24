@@ -23,15 +23,25 @@
 }
 
 
-.form-check-input:checked {
-  background-color: #FD1015!important;
-  border-color: #6c757d;
-}
 // END
 
 // LIGHTENING PASSWORD HINT FONT ON SIGN-UP FORM
 .form-group.mb-4 .hint {
-    color: #999;
+  color: #999;
 }
 // END
 
+
+
+
+
+
+.form-check-input {
+  border: none;
+  background-color: lightgray;
+}
+
+.form-check-input:checked {
+  background-color: #FD1015!important;
+  border-color: #6c757d;
+}
