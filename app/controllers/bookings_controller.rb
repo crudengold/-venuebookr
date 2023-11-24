@@ -26,6 +26,7 @@ class BookingsController < ApplicationController
     @booking.venue = @venue
     if @booking.save!
       redirect_to dashboard_path
+      flash[:message] = 'Your Booking was Created Successfully!'
     else
       render :new, status: :unprocessable_entity
     end

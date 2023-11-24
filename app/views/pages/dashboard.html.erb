@@ -72,6 +72,8 @@
     <div class="border-bottom border-danger pb-2">
       <h1>Your Venues</h1>
     </div>
+    
+<%= render "shared/flash" %>
     <br>
       <div class="row">
         <% @user.venues.each do |venue| %>

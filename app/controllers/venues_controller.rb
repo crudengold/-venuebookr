@@ -35,8 +35,10 @@ class VenuesController < ApplicationController
     @venue.user = current_user
     if @venue.save
       redirect_to venue_path(@venue)
+      flash[:message] = 'Your Venue was Created Successfully!'
     else
       render :new, status: :unprocessable_entity
+      flash[:message] = 'Missing Fields!'
     end
   end
 
